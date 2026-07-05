@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "18:00"
+      timezone: "Asia/Karachi"
+    open-pull-requests-limit: 1
+    reviewers:
+      - "khawaja-abdullah"
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "dependencies"
+    groups:
+      maven-build-plugins:
+        patterns:
+          - "org.apache.maven.plugins:*"
+          - "org.sonatype.central:*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "19:00"
+      timezone: "Asia/Karachi"
+    open-pull-requests-limit: 1
+    reviewers:
+      - "khawaja-abdullah"
+    commit-message:
+      prefix: "chore(deps-actions)"
+    labels:
+      - "dependencies"
+      - "actions"
+    groups:
+      github-actions:
+        patterns:
+          - "actions/*"
+          - "googleapis/release-please-action/*"
