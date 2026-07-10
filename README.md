@@ -23,7 +23,7 @@ Spring's `@Value` and `@ConfigurationProperties` only work on beans. The moment 
 ```xml
 <dependency>
     <groupId>io.github.khawaja-abdullah</groupId>
-    <artifactId>spring-boot-static-environment</artifactId>
+    <artifactId>spring-boot3-static-environment</artifactId>
     <version>${version}</version>
 </dependency>
 ```
@@ -35,8 +35,17 @@ No additional configuration required. The provider initializes automatically bef
 ## Usage
 
 ```java
-// String property
-String somePropertyValue = StaticEnvironment.getProperty("some.property.key");
+// String property — null if not found
+String value = StaticEnvironment.getProperty("some.property.key");
+
+// String property with default
+String value = StaticEnvironment.getProperty("some.property.key", "defaultValue");
+
+// Typed property — null if not found
+String value = StaticEnvironment.getProperty("some.property.key", String.class);
+
+// Typed property with default
+String value = StaticEnvironment.getProperty("some.property.key", String.class, "defaultValue");
 ```
 
 Property resolution follows Spring's standard priority order:

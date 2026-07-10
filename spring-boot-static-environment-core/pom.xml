@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>spring-boot-static-environment-core</artifactId>
-    <name>Spring Boot Static Environment</name>
+    <name>Spring Boot Static Environment Core</name>
     <description>Core module for Spring Boot Static Environment</description>
 
     <properties>
