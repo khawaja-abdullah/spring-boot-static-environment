@@ -44,7 +44,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-framework.version>6.2.19</spring-framework.version>
+        <spring-framework.version>7.0.8</spring-framework.version>
         <spring-boot3.version>3.5.16</spring-boot3.version>
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
