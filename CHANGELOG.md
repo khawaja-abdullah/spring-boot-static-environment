@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/khawaja-abdullah/spring-boot-static-environment/compare/v1.1.1...v1.2.0) (2026-07-11)
+
+
+### Features
+
+* implement SB 4.x adapter ([0731caf](https://github.com/khawaja-abdullah/spring-boot-static-environment/commit/0731caf7306ac7cb36c96198621236ac56710957))
+
 ## [1.1.1](https://github.com/khawaja-abdullah/spring-boot-static-environment/compare/v1.1.0...v1.1.1) (2026-07-11)
 
 
