@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/khawaja-abdullah/spring-boot-static-environment/compare/v1.1.0...v1.1.1) (2026-07-11)
+
+
+### Bug Fixes
+
+* refactor StaticEnvironment to use AtomicReference for thread safe environment management ([285378a](https://github.com/khawaja-abdullah/spring-boot-static-environment/commit/285378a49190627845946fac5d023925b977c00d))
+
 ## [1.1.0](https://github.com/khawaja-abdullah/spring-boot-static-environment/compare/v1.0.0...v1.1.0) (2026-07-10)
 
 
