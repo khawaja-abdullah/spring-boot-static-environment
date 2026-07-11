@@ -37,6 +37,7 @@
     <modules>
         <module>spring-boot-static-environment-core</module>
         <module>spring-boot3-static-environment</module>
+        <module>spring-boot4-static-environment</module>
     </modules>
 
     <properties>
@@ -46,6 +47,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-framework.version>6.2.19</spring-framework.version>
         <spring-boot3.version>3.5.16</spring-boot3.version>
+        <spring-boot4.version>4.1.0</spring-boot4.version>
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>

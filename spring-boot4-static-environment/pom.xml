@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.khawaja-abdullah</groupId>
+        <artifactId>spring-boot-static-environment-parent</artifactId>
+        <version>1.1.2-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>spring-boot4-static-environment</artifactId>
+    <name>Spring Boot 4 Static Environment</name>
+    <description>Spring Boot 4.x adapter for Spring Boot Static Environment</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.khawaja-abdullah</groupId>
+            <artifactId>spring-boot-static-environment-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${spring-boot4.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot4.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

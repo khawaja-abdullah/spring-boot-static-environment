@@ -28,6 +28,16 @@ Spring's `@Value` and `@ConfigurationProperties` only work on beans. The moment 
 </dependency>
 ```
 
+**Spring Boot 4.x**
+
+```xml
+<dependency>
+    <groupId>io.github.khawaja-abdullah</groupId>
+    <artifactId>spring-boot4-static-environment</artifactId>
+    <version>${version}</version>
+</dependency>
+```
+
 No additional configuration required. The provider initializes automatically before any beans are created.
 
 ---
