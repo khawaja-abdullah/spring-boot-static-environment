@@ -3,6 +3,8 @@ package io.github.khawajaabdullah.boot.env;
 import org.springframework.core.env.Environment;
 import org.springframework.lang.Nullable;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 /**
  * Static gateway to Spring's {@link Environment} for use outside the Spring-managed bean lifecycle — DTOs, plain
  * Java objects, Jackson deserializers, Hibernate types, and any class that Spring does not instantiate.
@@ -33,7 +35,7 @@ import org.springframework.lang.Nullable;
  */
 public final class StaticEnvironment {
 
-  private static Environment environment;
+  private static final AtomicReference<Environment> environmentAtomicReference = new AtomicReference<>();
 
   private StaticEnvironment() {
   }
@@ -51,7 +53,7 @@ public final class StaticEnvironment {
    * @param environment the Spring {@link Environment} to bind; may be {@code null} to reset
    */
   public static void setEnvironment(Environment environment) {
-    StaticEnvironment.environment = environment;
+    StaticEnvironment.environmentAtomicReference.set(environment);
   }
 
   /**
@@ -65,8 +67,7 @@ public final class StaticEnvironment {
    */
   @Nullable
   public static String getProperty(String key) {
-    checkInitialized();
-    return environment.getProperty(key);
+    return getEnvironment().getProperty(key);
   }
 
   /**
@@ -80,8 +81,7 @@ public final class StaticEnvironment {
    * @see Environment#getProperty(String, String)
    */
   public static String getProperty(String key, String defaultValue) {
-    checkInitialized();
-    return environment.getProperty(key, defaultValue);
+    return getEnvironment().getProperty(key, defaultValue);
   }
 
   /**
@@ -97,8 +97,7 @@ public final class StaticEnvironment {
    */
   @Nullable
   public static <T> T getProperty(String key, Class<T> targetType) {
-    checkInitialized();
-    return environment.getProperty(key, targetType);
+    return getEnvironment().getProperty(key, targetType);
   }
 
   /**
@@ -114,22 +113,24 @@ public final class StaticEnvironment {
    * @see Environment#getProperty(String, Class, Object)
    */
   public static <T> T getProperty(String key, Class<T> targetType, T defaultValue) {
-    checkInitialized();
-    return environment.getProperty(key, targetType, defaultValue);
+    return getEnvironment().getProperty(key, targetType, defaultValue);
   }
 
   /**
-   * Verifies that the provider has been initialized before any property access.
+   * Returns the cached {@link Environment}, ensuring it has been initialized.
    *
+   * @return the initialized environment
    * @throws IllegalStateException if {@link #setEnvironment(Environment)} has not been called yet
    */
-  private static void checkInitialized() {
+  private static Environment getEnvironment() {
+    Environment environment = environmentAtomicReference.get();
     if (environment == null) {
       throw new IllegalStateException(
           "StaticEnvironment has not been initialized. "
               + "Ensure spring-boot-static-environment is on the classpath "
               + "and the application context has started.");
     }
+    return environment;
   }
 
 }
